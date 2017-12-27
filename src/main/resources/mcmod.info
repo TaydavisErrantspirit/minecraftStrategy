@@ -1,0 +1,16 @@
+[
+{
+  "modid": "minestrategy",
+  "name": "Strategy in MineCraft",
+  "description": "Strategy in MineCraft",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TaydavisErrantspirit"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
