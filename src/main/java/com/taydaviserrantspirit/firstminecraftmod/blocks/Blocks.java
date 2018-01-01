@@ -1,10 +1,9 @@
 package com.taydaviserrantspirit.firstminecraftmod.blocks;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlock;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class Blocks 
 {
@@ -12,8 +11,7 @@ public class Blocks
 	
 	public static void registerBlocks()
     {
-		ForgeRegistries.BLOCKS.register(blockTest);
-		ForgeRegistries.ITEMS.register(new ItemBlock(blockTest).setRegistryName(blockTest.getRegistryName()));
+		register(blockTest);
     }
 
 	@SideOnly(Side.CLIENT)
@@ -21,4 +19,9 @@ public class Blocks
     {
 
     }
+	
+	private static void register(Block block)
+	{
+		GameRegistry.registerBlock(block, block.getUnlocalizedName());		
+	}
 }

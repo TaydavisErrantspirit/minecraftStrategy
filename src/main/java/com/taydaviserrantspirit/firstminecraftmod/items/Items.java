@@ -1,9 +1,11 @@
 package com.taydaviserrantspirit.firstminecraftmod.items;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraft.item.ItemStack;
 
 public class Items 
 {
@@ -11,7 +13,10 @@ public class Items
 	
 	public static void registerItems()
     {
-		ForgeRegistries.ITEMS.register(itemTest);
+		register(itemTest);
+		
+		GameRegistry.addRecipe(new ItemStack(itemTest, 1), new Object[] {"## ", "## ","   ", ('#'), Blocks.cobblestone});
+		GameRegistry.addShapelessRecipe(new ItemStack(itemTest, 1), new Object[] {Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone,Blocks.cobblestone});
     }
 	
 	@SideOnly(Side.CLIENT)
@@ -19,4 +24,9 @@ public class Items
     {
 
     }
+	
+	private static void register(Item item)
+	{
+		GameRegistry.registerItem(item, item.getUnlocalizedName());
+	}
 }

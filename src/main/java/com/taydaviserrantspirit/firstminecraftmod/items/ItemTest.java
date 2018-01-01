@@ -6,7 +6,6 @@ public class ItemTest extends Item
 {
 	public ItemTest(String name)
 	{
-		this.setRegistryName(name);
 		this.setUnlocalizedName(name);
 	}
 }

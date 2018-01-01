@@ -2,7 +2,6 @@ package com.taydaviserrantspirit.firstminecraftmod.entities;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class EntityMob extends EntityCreature{

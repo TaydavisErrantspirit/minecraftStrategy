@@ -2,13 +2,12 @@ package com.taydaviserrantspirit.firstminecraftmod;
 
 import com.taydaviserrantspirit.firstminecraftmod.proxy.CommonProxy;
 
-import net.minecraft.init.Blocks;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = MainModClass.MODID, version = MainModClass.VERSION)
 public class MainModClass
@@ -16,7 +15,11 @@ public class MainModClass
     public static final String MODID = "minestrategy";
     public static final String VERSION = "0.0.1";
     
-    @SidedProxy(clientSide = "com.taydaviserrantspirit.firstminecraftmod.proxy.ClientProxy", serverSide = "com.taydaviserrantspirit.firstminecraftmod.proxy.ServerProxy")
+    
+    @Mod.Instance(MODID)
+    public static MainModClass instance; 
+    
+    @SidedProxy(clientSide = "com.taydaviserrantspirit.firstminecraftmod.proxy.ClientProxy", serverSide = "com.taydaviserrantspirit.firstminecraftmod.proxy.CommonProxy")
     public static CommonProxy proxy;
     
     @EventHandler
