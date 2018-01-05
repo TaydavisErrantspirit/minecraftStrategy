@@ -1,6 +1,7 @@
 package com.taydaviserrantspirit.firstminecraftmod.entities;
 
 import com.taydaviserrantspirit.firstminecraftmod.MainModClass;
+import com.taydaviserrantspirit.firstminecraftmod.entities.EntityBotSlave;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -16,16 +17,16 @@ public class Entities {
 	{
 		System.out.println("Registering mobs");
 		
-		registerEntity(EntityMob.class, "EntityMob", 0x00FFFF, 0x00008B);
+		registerEntity(EntityBotSlave.class, "EntitySlave", 0x000000, 0x111111);
 	}
 	@SideOnly(Side.CLIENT)
 	public static void registerEntityRenders()
 	{
 		System.out.println("Registering mob renders");
 		
-		registerEntityRender(EntityMob.class, new EntityMobRender(new ModelBiped(), 0.5F));	
+		registerEntityRender(EntityBotSlave.class, new EntityMobRender(new ModelBiped(), 0.5F));	
 	}
-	
+	@SideOnly(Side.CLIENT)
 	private static void registerEntityRender(Class entityClass, Render render )
 	{
 		RenderingRegistry.registerEntityRenderingHandler(entityClass, render);			
