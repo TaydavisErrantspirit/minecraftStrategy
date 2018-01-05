@@ -52,7 +52,7 @@ import net.minecraft.world.World;
 
 public class EntityBotSlave extends EntityCreature
 {
-	public EntityPlayer master;
+	public EntityPlayer master = null;
 	public boolean isActive;
 	
 	CustomAiController aiController;
@@ -78,6 +78,8 @@ public class EntityBotSlave extends EntityCreature
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTargetControlled(this));
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityMob.class, 0, true));
         this.targetTasks.addTask(4, new EntityAIHurtByTarget(this, false));		
+        
+        this.aiController = new CustomAiController();
 	}
 	
 	public CustomAiController getAiController()
