@@ -1,53 +1,29 @@
 package com.taydaviserrantspirit.firstminecraftmod.entities;
 
-import com.mojang.authlib.GameProfile;
 import com.taydaviserrantspirit.firstminecraftmod.entities.ai.CustomAiController;
-import com.taydaviserrantspirit.firstminecraftmod.entities.ai.EntityAIOwnerHurtTargetControlled;
+import com.taydaviserrantspirit.firstminecraftmod.entities.ai.EntityAIOwnerHurtByTargetControlled;
 import com.taydaviserrantspirit.firstminecraftmod.entities.ai.EntityAiAtackOnCollideControlled;
 import com.taydaviserrantspirit.firstminecraftmod.entities.ai.EntityAiAvoidEntityControled;
 import com.taydaviserrantspirit.firstminecraftmod.entities.ai.EntityAiFollowMaster;
-import com.taydaviserrantspirit.firstminecraftmod.entities.ai.EntityAiOwnerHurtByTargetControlled;
+import com.taydaviserrantspirit.firstminecraftmod.entities.ai.EntityAIOwnerHurtTargetControlled;
 import com.taydaviserrantspirit.firstminecraftmod.entities.ai.EntityAiWanderControlled;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAttackOnCollide;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
-import net.minecraft.entity.ai.EntityAIBeg;
-import net.minecraft.entity.ai.EntityAICreeperSwell;
-import net.minecraft.entity.ai.EntityAIFollowOwner;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
-import net.minecraft.entity.ai.EntityAILeapAtTarget;
 import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIMate;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAIOwnerHurtByTarget;
-import net.minecraft.entity.ai.EntityAIOwnerHurtTarget;
 import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityGhast;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityHorse;
-import net.minecraft.entity.passive.EntityOcelot;
-import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.pathfinding.PathNavigate;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 public class EntityBotSlave extends EntityCreature
@@ -59,6 +35,7 @@ public class EntityBotSlave extends EntityCreature
 	
 	public EntityBotSlave(World p_i1595_1_) {
 		super(p_i1595_1_);
+        this.aiController = new CustomAiController();
 		
 		this.isActive = false;
 
@@ -74,14 +51,20 @@ public class EntityBotSlave extends EntityCreature
         this.tasks.addTask(9, new EntityAILookIdle(this));
 
         
-        this.targetTasks.addTask(1, new EntityAiOwnerHurtByTargetControlled(this));
+        this.targetTasks.addTask(1, new EntityAIOwnerHurtByTargetControlled(this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTargetControlled(this));
         this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityMob.class, 0, true));
         this.targetTasks.addTask(4, new EntityAIHurtByTarget(this, false));		
         
-        this.aiController = new CustomAiController();
 	}
 	
+	@Override
+    protected void applyEntityAttributes()
+    {
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.5D);
+    }
+    
 	public CustomAiController getAiController()
 	{
 		return this.aiController;

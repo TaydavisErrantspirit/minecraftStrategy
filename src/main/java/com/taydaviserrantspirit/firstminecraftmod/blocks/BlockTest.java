@@ -4,14 +4,13 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
 public class BlockTest extends Block {
 
 	public BlockTest(String name) 
 	{
-		super(Material.rock);
+		super(Material.sand);
 		this.setBlockName(name);
 	}
 	

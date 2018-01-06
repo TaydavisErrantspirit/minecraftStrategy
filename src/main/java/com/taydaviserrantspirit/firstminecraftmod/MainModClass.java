@@ -10,12 +10,11 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.relauncher.Side;
-
-@Mod(modid = MainModClass.MODID, version = MainModClass.VERSION)
+//dependencies = "required-after:mylib" или dependencies="required-before:mylib"
+@Mod(modid = MainModClass.MODID, useMetadata = true)
 public class MainModClass
 {
-    public static final String MODID = "minestrategy";
-    public static final String VERSION = "0.0.1";
+    public static final String MODID = "minestrategyB";
     
     
     @Mod.Instance(MODID)

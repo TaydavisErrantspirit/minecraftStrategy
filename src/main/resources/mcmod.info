@@ -4,7 +4,7 @@
   "name": "Strategy in MineCraft",
   "description": "Strategy in MineCraft",
   "version": "${version}",
-  "mcversion": "${mcversion}",
+  "mcversion": "${mcversion}"
   "url": "",
   "updateUrl": "",
   "authorList": ["TaydavisErrantspirit"],
