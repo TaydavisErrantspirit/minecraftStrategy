@@ -28,7 +28,7 @@ public class EntityAIOwnerHurtByTargetControlled extends EntityAITarget{
     {
     	if(this.aiController.needToAttack()&&this.aiController.needToProtect())
     	{
-            EntityLivingBase entitylivingbase = ((EntityBotSlave) this.theEntityTameable).getMaster();
+            EntityLivingBase entitylivingbase = ((EntityBotSlave) this.theEntityTameable).getOwner();
             
             if (entitylivingbase != null)
             {    this.theTarget = entitylivingbase.getLastAttacker();
@@ -46,7 +46,7 @@ public class EntityAIOwnerHurtByTargetControlled extends EntityAITarget{
     public void startExecuting()
     {
        this.taskOwner.setAttackTarget(this.theTarget);
-        EntityLivingBase entitylivingbase = ((EntityBotSlave) this.theEntityTameable).getMaster();
+        EntityLivingBase entitylivingbase = ((EntityBotSlave) this.theEntityTameable).getOwner();
 
         if (entitylivingbase != null)
         {

@@ -42,7 +42,7 @@ public class EntityAiFollowMaster extends EntityAIBase
     {
     	if	(this.aiController.needToFolowMaster())
         {
-        	EntityLivingBase entitylivingbase = this.slave.getMaster();
+        	EntityLivingBase entitylivingbase = this.slave.getOwner();
 	        if (entitylivingbase != null)
 	        {
         		if (this.slave.getDistanceSqToEntity(entitylivingbase) > (double)(this.minDist * this.minDist))

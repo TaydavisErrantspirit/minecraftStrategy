@@ -27,9 +27,9 @@ public class EntityAIOwnerHurtTargetControlled extends EntityAITarget {
     {
     	if(this.aiController.needToAttack()&&this.aiController.needToProtect()&&this.aiController.needToAttackWithMaster())
     	{
-	        if (this.theDefendingTameable.getMaster()!=null)
+	        if (this.theDefendingTameable.getOwner()!=null)
 	        {
-	            EntityLivingBase entitylivingbase = this.theDefendingTameable.getMaster();
+	            EntityLivingBase entitylivingbase = this.theDefendingTameable.getOwner();
 	
 	            if (entitylivingbase != null)
 	            {
@@ -48,7 +48,7 @@ public class EntityAIOwnerHurtTargetControlled extends EntityAITarget {
     public void startExecuting()
     {
         this.taskOwner.setAttackTarget(this.theOwnerAttacker);
-        EntityLivingBase entitylivingbase = this.theDefendingTameable.getMaster();
+        EntityLivingBase entitylivingbase = this.theDefendingTameable.getOwner();
 
         if (entitylivingbase != null)
         {

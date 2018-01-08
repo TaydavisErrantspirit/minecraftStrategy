@@ -1,8 +1,11 @@
 package com.taydaviserrantspirit.firstminecraftmod;
 
+import org.apache.logging.log4j.Logger;
+
 import com.taydaviserrantspirit.firstminecraftmod.proxy.CommonProxy;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -22,7 +25,7 @@ public class MainModClass
     
     @SidedProxy(clientSide = "com.taydaviserrantspirit.firstminecraftmod.proxy.ClientProxy", serverSide = "com.taydaviserrantspirit.firstminecraftmod.proxy.CommonProxy")
     public static CommonProxy proxy;
-    
+			
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
@@ -32,7 +35,6 @@ public class MainModClass
     	 * Регистрация сущностей
     	 * Присвоение имен в Ore Dictionary
     	 */
-    	
 		System.out.println(MODID + " preInitialization");
     	
     	proxy.preInit(event);
